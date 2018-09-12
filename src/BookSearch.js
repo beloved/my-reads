@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI';
 import { Link } from 'react-router-dom';
 import './App.css';
-import BookShelfChanger from "./BookShelfChanger";
+import Book from "./Book";
 
 class BookSearch extends Component {
 
@@ -28,8 +28,6 @@ class BookSearch extends Component {
             this.setState({showMatchedBooks: []})
         }
     }
-
-
     render() {
         return (
             <div className="search-books">
@@ -43,14 +41,7 @@ class BookSearch extends Component {
                     <ol className="books-grid">
                         {this.state.showMatchedBooks.map(showMatchedBook => (
                             <li key = {showMatchedBook.id}>
-                                <div className="book">
-                                    <div className="book-top">
-                                        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${showMatchedBook.imageLinks.thumbnail}")`}}></div>
-                                        <BookShelfChanger book = {showMatchedBook} changeShelf={this.props.changeShelf} />
-                                    </div>
-                                    <div className="book-title">{showMatchedBook.title}</div>
-                                    <div className="book-authors">{showMatchedBook.authors}</div>
-                                </div>
+                                <Book book={showMatchedBook} changeShelf={this.props.changeShelf}/>
                             </li>
                         ))}
                     </ol>

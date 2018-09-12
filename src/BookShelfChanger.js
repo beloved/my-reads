@@ -8,7 +8,7 @@ class BookShelfChanger extends Component {
     };
 
     changeShelf(e) {
-        this.setState({value:e.target.value});
+        this.setState( {value: e.target.value });
         console.log(this.props);
     }
     render() {

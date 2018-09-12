@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import ListBooks from "./ListBooks";
+import Book from "./Book";
 
 class BookShelf extends Component {
 
@@ -9,12 +9,17 @@ class BookShelf extends Component {
             <div className="bookshelf">
                 <h2 className="bookshelf-title">{this.props.title}</h2>
                 <div className="bookshelf-books">
-                       <ListBooks shelf = {this.props.shelf} books={this.props.books} changeShelf={this.props.changeShelf}/>
+                    <ol className="books-grid">
+                        {this.props.books.filter(book => book.shelf === this.props.shelf).map((book) => (
+                            <li key = {book.id}>
+                                <Book shelf = {this.props.shelf} book={book} changeShelf={this.props.changeShelf}/>
+                            </li>
+                        ))}
+                    </ol>
                 </div>
             </div>
         );
     }
 }
-
 
 export default BookShelf
