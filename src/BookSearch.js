@@ -29,7 +29,6 @@ class BookSearch extends Component {
                 }).then(this.setState({showMatchedBooks: showMatchedBooks}))
             }).catch((error) => {
                 console.error(error);
-                alert('Invalid Input, Try again');
                 }).then(this.setState({showMatchedBooks: []}))
         } else {
             this.setState({showMatchedBooks: []})
