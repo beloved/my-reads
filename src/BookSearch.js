@@ -22,12 +22,11 @@ class BookSearch extends Component {
                     //The code on lines 23-29 was created with assistance by help from peers in slack, student: solittletime.
                     let getMatch = this.props.books.find((book) => book.id === showMatchedBook.id);
                     if (getMatch) {
-                        showMatchedBook.shelf = getMatch.shelf;
+                       return showMatchedBook.shelf = getMatch.shelf;
                     } else {
-                        showMatchedBook.shelf = 'none';
+                       return  showMatchedBook.shelf = 'none';
                     }
-                })
-                this.setState({showMatchedBooks: showMatchedBooks})
+                }).then(this.setState({showMatchedBooks: showMatchedBooks}))
             }).catch((error) => {
                 console.error(error);
                 alert('Invalid Input, Try again');
