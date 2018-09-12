@@ -29,6 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+          {/*Routing with developed based upon Udacity React lesson 5: Managing App Location with React Router*/}
           <Route exact path='/' render={() => (
               <div>
                   <h1>My Reads</h1>

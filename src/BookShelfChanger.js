@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 class BookShelfChanger extends Component {
-
+// Code for this shelf menu was inspired and adapted based on research from the React Documentation: https://reactjs.org/docs/forms.html
     state = {
         value: this.props.book.shelf
     };

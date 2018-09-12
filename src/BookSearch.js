@@ -18,6 +18,15 @@ class BookSearch extends Component {
     getMatchedBooks = (query) => {
         if (query) {
             BooksAPI.search(query).then((showMatchedBooks) => {
+                showMatchedBooks.map((showMatchedBook) => {
+                    //The code on lines 23-29 was created with assistance by help from peers in slack, student: solittletime.
+                    let getMatch = this.props.books.find((book) => book.id === showMatchedBook.id);
+                    if (getMatch) {
+                        showMatchedBook.shelf = getMatch.shelf;
+                    } else {
+                        showMatchedBook.shelf = 'none';
+                    }
+                })
                 this.setState({showMatchedBooks: showMatchedBooks})
             }).catch((error) => {
                 console.error(error);
