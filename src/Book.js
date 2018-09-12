@@ -5,29 +5,27 @@ import BookShelfChanger from "./BookShelfChanger";
 class Book extends Component {
 
     render() {
+        let book = this.props.book;
         let showBookCover;
-        if (this.props.book.imageLinks) {
-            showBookCover = this.props.book.imageLinks.thumbnail;
+        if (book.imageLinks) {
+            showBookCover = book.imageLinks.thumbnail;
         } else {
             showBookCover = '';
         }
         let bookAuthor;
-        if (this.props.book.authors) {
-            bookAuthor = this.props.book.authors;
+        if (book.authors) {
+            bookAuthor = book.authors;
         } else {
             bookAuthor = '';
         }
 
-        if (!this.props.book.shelf) {
-            this.props.book.shelf = 'none';
-        }
         return (
                     <div className="book">
                         <div className="book-top">
                             <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${showBookCover}")`}}></div>
-                            <BookShelfChanger book = {this.props.book} changeShelf={this.props.changeShelf}/>
+                            <BookShelfChanger book = {book} changeShelf={this.props.changeShelf}/>
                         </div>
-                        <div className="book-title">{this.props.book.title}</div>
+                        <div className="book-title">{book.title}</div>
                         <div className="book-authors">{bookAuthor}</div>
                     </div>
 
