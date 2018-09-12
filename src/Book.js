@@ -17,6 +17,10 @@ class Book extends Component {
         } else {
             bookAuthor = '';
         }
+
+        if (!this.props.book.shelf) {
+            this.props.book.shelf = 'none';
+        }
         return (
                     <div className="book">
                         <div className="book-top">
