@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import './App.css';
 import Book from "./Book";
 
@@ -39,7 +39,7 @@ class BookSearch extends Component {
         return (
             <div className="search-books">
                 <div className="search-books-bar">
-                    <Link className="close-search" to='/'>Close</Link>
+                    <a href='/' className="close-search">Close</a>
                     <div className="search-books-input-wrapper">
                         <input type="text" placeholder="Search by title or author" value={this.state.query} onChange={ event => this.updateQuery(event.target.value) }/>
                     </div>
