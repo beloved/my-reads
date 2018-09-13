@@ -19,12 +19,19 @@ class App extends Component {
         this.setState({books})
       })
     }
-
+    ////The code on lines 23-34 was created with assistance by help from a peer in slack, student: Jason Tracy.
     changeShelf = (book, shelf) => {
-        BooksAPI.update(book, shelf).then(BooksAPI.getAll().then((books) => {
-            this.setState({books})
-        }))
-    }
+        const bookIndex = this.state.books.findIndex(
+            oldBook => oldBook.id === book.id
+        );
+        let newState;
+        if (bookIndex !== -1) {
+            newState = Object.assign({}, this.state.books);
+            newState[bookIndex].shelf = shelf;
+        }
+        BooksAPI.update(book, shelf);
+        this.setState({ newState });
+    };
 
   render() {
     return (

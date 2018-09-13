@@ -26,7 +26,8 @@ class BookSearch extends Component {
                     } else {
                        return  showMatchedBook.shelf = 'none';
                     }
-                }).then(this.setState({showMatchedBooks: showMatchedBooks}))
+                })
+                this.setState({showMatchedBooks: showMatchedBooks});
             }).catch((error) => {
                 console.error(error);
                 }).then(this.setState({showMatchedBooks: []}))
